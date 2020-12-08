@@ -1,0 +1,19 @@
+.Release table{
+    border: 1px solid black;
+}
+.Release table thead {
+    background-color: brown;
+}
+.Release table thead th{
+    text-align: center;
+    color: white;
+    border: 1px solid black;
+    padding: 5px;
+}
+.Release table tbody td{
+    text-align: center;
+    border: 1px solid black;
+}
+.Release table tbody tr:nth-child(even){
+ background-color: orange;
+}
