@@ -1,12 +1,14 @@
 const express = require("express");
 const BodyParser = require("body-parser");
 const https = require("https");
-const { response } = require("express");
+
+
 
 const app = express();
 app.use(BodyParser.urlencoded({extended : true}));
 app.set("view engine", "ejs")
-
+const key = process.env.API;
+console.log(key)
 
 app.get("/", (req, res)=>{
     const url = "https://api.stlouisfed.org/fred/series?series_id=SMU16142609092161101&api_key=c8c81bfff01e8985bbbb8e22555c04a9&file_type=json#"
