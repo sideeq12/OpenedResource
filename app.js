@@ -18,7 +18,13 @@ app.get("/", (req, res)=>{
         // console.log(response.statusCode)
         response.on("data", (data)=>{
         const result = JSON.parse(data);
-        res.render("Home")
+        let title = result["Crypto Rating (FCAS)"];
+        let name = title["2. name"]
+        let symbol = title["1. symbol"]
+        let fcas = title["3. fcas rating"]
+        console.log(fcas)
+        // console.log(result)
+        res.render("Home", {title : name, Symbol : symbol, FCAS : fcas})
         
     })
 }) 
