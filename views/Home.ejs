@@ -15,7 +15,7 @@
       <div class="container">
           <div class="row" style="width: 100%; height:500px;">
               <div class="col-sm-12 Release">
-                        <h4>Latest Release</h4>
+                        <h4>CRYPTO RATING (FCAS)</h4>
                         <p>
                       <table>
                           <thead>
@@ -26,6 +26,7 @@
                               <th>Developer score</th>
                               <th>FCAS score</th>
                               <th>Utility scores</th>
+                              <th>Last refreshed</th>
                           </thead>
                           <tbody>
                               <tr>
@@ -36,7 +37,20 @@
                               <td><%= BDev %> </td>
                               <td><%= BFacscore %></td>
                               <td><%= BUtility %></td>
+                              <td><%= Brefreshed %></td>
                             </tr>
+                            <% dataArray.forEach((data)=>{ %>
+                                <tr>
+                                    <td><%- data["2. name"] %></td>
+                                    <td><%- data["1. symbol"] %></td>
+                                    <td><%- data["3. fcas rating"] %></td>
+                                    <td><%- data["6. market maturity score"] %></td>
+                                    <td><%- data["5. developer score"] %></td>
+                                    <td><%- data["4. fcas score"] %></td>
+                                    <td><%- data["7. utility score"] %></td>
+                                    <td><%- data["8. last refreshed"] %></td>
+                                </tr>
+                            <% }) %>
                           </tbody>
                       </table>
                     </p>

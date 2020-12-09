@@ -14,8 +14,14 @@ const key = process.env.API;
 
 
 app.get("/", (req, res)=>{
+    // list of the crypto currencies url to be used in CRYPTO RATING SECTION
     const url = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=BTC&apikey="+key
-    const url1 = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=ETH&apikey="+key
+    const ETH = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=ETH&apikey="+key
+    const BCH = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=BCH&apikey="+key
+    const XRP = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=XRP&apikey="+key
+    const LTC = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=LTC&apikey="+key
+    const EOS = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=EOS&apikey="+key
+
     https.get(url, (response)=>{
         // console.log(response.statusCode)
         response.on("data", (data)=>{
@@ -28,12 +34,42 @@ app.get("/", (req, res)=>{
         let BTCDev = title["5. developer score"]
         let BTCFacscore = title["4. fcas score"]
         let BTCUtility = title["7. utility score"]
-        console.log(result)
-        // console.log(result)
-        res.render("Home", {Btitle : BTCname, BSymbol : BTCsymbol, BFCAS : BTCfcas,
-             BMarket : BTCMarket, BDev : BTCDev, BFacscore : BTCFacscore,
-             BUtility : BTCUtility
+        let Brefreshe = title["8. last refreshed"]
+        let dataArray = []
+        https.get(ETH, (response)=>{
+            response.on("data", (data)=>{
+                const eth = JSON.parse(data);
+                const ethVal = eth["Crypto Rating (FCAS)"]
+                dataArray.push(ethVal)
+                https.get(BCH, (response)=>{
+                    response.on("data", (data)=>{
+                        const bch = JSON.parse(data);
+                        const bchVal = bch["Crypto Rating (FCAS)"]
+                        dataArray.push(bchVal)
+                        https.get(XRP, (response)=>{
+                            response.on("data", (data)=>{
+                                const xrp = JSON.parse(data)
+                                const xrpVal = xrp["Crypto Rating (FCAS)"]
+                                dataArray.push(xrpVal)
+                                https.get(LTC, (response)=>{
+                                    response.on("data", (data)=>{
+                                        const ltc = JSON.parse(data)
+                                        const ltcVal = ltc["Crypto Rating (FCAS)"]
+                                        dataArray.push(ltcVal)
+                                        console.log(dataArray)
+                                        res.render("Home", {Btitle : BTCname, BSymbol : BTCsymbol, BFCAS : BTCfcas,
+                                            BMarket : BTCMarket, BDev : BTCDev, BFacscore : BTCFacscore,
+                                            BUtility : BTCUtility, Brefreshed : Brefreshe, dataArray : dataArray
+                                           })
+                                    })
+                                })
+                            })
+                        })
+                    })
+                })
             })
+        })
+       
         
     })
 }) 
