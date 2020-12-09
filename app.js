@@ -20,7 +20,8 @@ app.get("/", (req, res)=>{
     const BCH = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=BCH&apikey="+key
     const XRP = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=XRP&apikey="+key
     const LTC = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=LTC&apikey="+key
-    const EOS = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=USDT&apikey="+key
+    const BNB = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=BNB&apikey="+key
+    const EOS = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=EOS&apikey="+key
 
     https.get(url, (response)=>{
         // console.log(response.statusCode)
@@ -60,13 +61,6 @@ app.get("/", (req, res)=>{
                                         res.render("Home", {Btitle : BTCname, BSymbol : BTCsymbol, BFCAS : BTCfcas,
                                             BMarket : BTCMarket, BDev : BTCDev, BFacscore : BTCFacscore,
                                             BUtility : BTCUtility, Brefreshed : Brefreshe, dataArray : dataArray
-                                           })
-                                           https.get(EOS, (response)=>{
-                                               response.on("data", (data)=>{
-                                                   const eos = JSON.parse(data)
-                                                   let eosVal = eos["Crypto Rating (FCAS)"]
-                                                   console.log(eosVal)
-                                               })
                                            })
                                     })
                                 })
