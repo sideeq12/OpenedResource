@@ -26,9 +26,13 @@ app.get("/", (req, res)=>{
         let Market = title["6. market maturity score"]
         let Dev = title["5. developer score"]
         let Facscore = title["4. fcas score"]
+        let Utility = title["7. utility score"]
         console.log(result)
         // console.log(result)
-        res.render("Home", {title : name, Symbol : symbol, FCAS : fcas, Market : Market, Dev : Dev, Facscore : Facscore})
+        res.render("Home", {title : name, Symbol : symbol, FCAS : fcas,
+             Market : Market, Dev : Dev, Facscore : Facscore,
+             Utility : Utility
+            })
         
     })
 }) 
