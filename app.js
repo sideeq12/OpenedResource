@@ -68,7 +68,7 @@ req.headers({
 	"useQueryString": true
 });
 req.end(function (res) {
-	if (res.error) throw new Error(res.error);
+	
     let result = res.body;
     let arrBody = result.prices
     global.price = arrBody.slice(0, 20);
