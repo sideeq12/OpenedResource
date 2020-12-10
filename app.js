@@ -103,57 +103,32 @@ https.get(ETH, (response)=>{
         dataArray.push(eth)
     })
 })
+
+ https.get(BCH, (response)=>{
+        response.on("data", (data)=>{
+            let result = JSON.parse(data)
+            let bch = result["Crypto Rating (FCAS)"]
+            dataArray.push(bch)
+        })
+    })
+    https.get(XRP, (response)=>{
+        response.on("data", (data)=>{
+            let result = JSON.parse(data)
+            let xrp = result["Crypto Rating (FCAS)"]
+            dataArray.push(xrp)
+        })
+    })
+    https.get(LTC, (response)=>{
+        response.on("data", (data)=>{
+            let result = JSON.parse(data)
+            let ltc = result["Crypto Rating (FCAS)"]
+            dataArray.push(ltc)
+        })
+    })
+
 app.get("/", (req, res)=>{
  
 
-
-//     https.get(URL, (response)=>{
-//         response.on("data", (data)=>{
-//         const result = JSON.parse(data);
-//         let title = result["Crypto Rating (FCAS)"];
-//         let BTCname = title["2. name"]
-//         let BTCsymbol = title["1. symbol"]
-//         let BTCfcas = title["3. fcas rating"]
-//         let BTCMarket = title["6. market maturity score"]
-//         let BTCDev = title["5. developer score"]
-//         let BTCFacscore = title["4. fcas score"]
-//         let BTCUtility = title["7. utility score"]
-//         let Brefreshe = title["8. last refreshed"]
-//         let dataArray = []
-//         https.get(ETH, (response)=>{
-//             response.on("data", (data)=>{
-//                 const eth = JSON.parse(data);
-//                 const ethVal = eth["Crypto Rating (FCAS)"]
-//                 dataArray.push(ethVal)
-//                 https.get(BCH, (response)=>{
-//                     response.on("data", (data)=>{
-//                         const bch = JSON.parse(data);
-//                         const bchVal = bch["Crypto Rating (FCAS)"]
-//                         dataArray.push(bchVal)
-//                         https.get(XRP, (response)=>{
-//                             response.on("data", (data)=>{
-//                                 const xrp = JSON.parse(data)
-//                                 const xrpVal = xrp["Crypto Rating (FCAS)"]
-//                                 dataArray.push(xrpVal)
-//                                 https.get(LTC, (response)=>{
-//                                     response.on("data", (data)=>{
-//                                         const ltc = JSON.parse(data)
-//                                         const ltcVal = ltc["Crypto Rating (FCAS)"]
-//                                         dataArray.push(ltcVal)
-//                                         // res.render("Home", {Btitle : BTCname, BSymbol : BTCsymbol, BFCAS : BTCfcas,
-//                                         //     BMarket : BTCMarket, BDev : BTCDev, BFacscore : BTCFacscore,
-//                                         //     BUtility : BTCUtility, Brefreshed : Brefreshe, dataArray : dataArray 
-//                                         //    })
-//                                     })
-//                                 })
-//                             })
-//                         })
-//                     })
-//                 })
-//             })
-//         })
-//     })
-// }) 
 console.log(dataArray)
 res.render("Home", {message : message, title : title, url : link1,
      tickers : tickers, price : price, dataArray : dataArray

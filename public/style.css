@@ -1,9 +1,6 @@
 .news{
     height: fit-content;
-    padding: 30px;
 }
-
-
 .Release table{
     border: 1px solid black;
 }
@@ -43,7 +40,13 @@ span{
    background-color: #f05454;
     color: wheat;
 }
+.Market table tbody tr:nth-child(even){
+    background-color: #839b97;
+}
 .Market table thead th, table tbody td{
     border: 1px solid black;
     text-align: center;
+}
+.historical{
+    margin-top: 50px;
 }
