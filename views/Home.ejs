@@ -13,6 +13,16 @@
       </div>
 
       <div class="container">
+          <div class="Latest-news">
+                <h3>Latest Stock news</h5>
+                   <% news.forEach((new)=>{ %>
+                        <h5><%- new.content %></h5>
+                        <p>Summary of the message about the news is appended here</p>
+                        <a href="/" class="btn btn-primary">Read more</a>
+                    })
+                
+          </div>
+          <hr/>
           <div class="row" style="width: 100%; height:500px;">
               <div class="col-sm-12 Release">
                         <h4>CRYPTO RATING (FCAS)</h4>
