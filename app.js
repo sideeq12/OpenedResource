@@ -3,6 +3,8 @@ const BodyParser = require("body-parser");
 const https = require("https");
 const unirest = require("unirest")
 const dotenv = require("dotenv");
+const { link } = require("fs");
+const { response } = require("express");
 dotenv.config()
 
 
@@ -13,6 +15,11 @@ app.use(BodyParser.urlencoded({extended : true}));
 app.set("view engine", "ejs")
 const key = process.env.API;
 
+
+
+
+
+
 //Yahoo news api global calling
 var reqUni = unirest("GET", "https://apidojo-yahoo-finance-v1.p.rapidapi.com/news/v2/get-details");
 
@@ -22,7 +29,7 @@ reqUni.query({
 });
 
 reqUni.headers({
-    "x-rapidapi-key": "336218d839msh1637381c3d1b658p1423aajsn45e2a66bde89",
+    "x-rapidapi-key": process.env.API3,
     "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
     "useQueryString": true
 });
@@ -34,25 +41,72 @@ reqUni.end(function (res) {
     let content1 = data.data
     let news = content1.contents
     let mess = news[0].content
-    let title = mess.title;
+    global.title = mess.title;
     let summary = mess.summary
-    let link = mess.canonicalUrl[0]
-    global.title1 = summary
+    let linked = mess.canonicalUrl.url
+    global.link1 = linked
+    global.message = summary
+    let Tickers = mess.finance.stockTickers
+    global.tickers = Tickers
     // let link1 = link.url
-   console.log(title1)
     
 })
 
+
+
+// YAHOO HISTORICAL DATA
+
+var req = unirest("GET", "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v3/get-historical-data");
+
+req.query({
+	"symbol": "AMRN",
+	"region": "US"
+});
+
+req.headers({
+	"x-rapidapi-key": "336218d839msh1637381c3d1b658p1423aajsn45e2a66bde89",
+	"x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
+	"useQueryString": true
+});
+
+
+req.end(function (res) {
+	if (res.error) throw new Error(res.error);
+    let result = res.body;
+    let arrBody = result.prices
+    global.price = arrBody.slice(0, 20);
+    // console.log(price)
+});
+
+
 // Main page http apis calling
-app.get("/", (req, res)=>{
-    // list of the crypto currencies url to be used in CRYPTO RATING SECTION
-    const URL = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=BTC&apikey="+key
-    const ETH = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=ETH&apikey="+key
-    const BCH = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=BCH&apikey="+key
-    const XRP = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=XRP&apikey="+key
-    const LTC = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=LTC&apikey="+key
- 
+   // list of the crypto currencies url to be used in CRYPTO RATING SECTION
+   const BTC = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=BTC&apikey="+key
+   const ETH = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=ETH&apikey="+key
+   const BCH = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=BCH&apikey="+key
+   const XRP = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=XRP&apikey="+key
+   const LTC = "https://www.alphavantage.co/query?function=CRYPTO_RATING&symbol=LTC&apikey="+key
+
 // Sending https get request  to the url to get the data
+let dataArray = []
+https.get(BTC, (response)=>{
+   response.on("data", (data)=>{
+       let result = JSON.parse(data)
+       let btc = result["Crypto Rating (FCAS)"]
+       dataArray.push(btc)
+   })
+})
+https.get(ETH, (response)=>{
+    response.on("data", (data)=>{
+        let result = JSON.parse(data)
+        let eth = result["Crypto Rating (FCAS)"]
+        dataArray.push(eth)
+    })
+})
+app.get("/", (req, res)=>{
+ 
+
+
 //     https.get(URL, (response)=>{
 //         response.on("data", (data)=>{
 //         const result = JSON.parse(data);
@@ -100,8 +154,12 @@ app.get("/", (req, res)=>{
 //         })
 //     })
 // }) 
-res.render("Home", {title1 : title1})
+console.log(dataArray)
+res.render("Home", {message : message, title : title, url : link1,
+     tickers : tickers, price : price, dataArray : dataArray
+    })
 })
+
 
 
 // Port listening to render

@@ -1,4 +1,4 @@
-.lastest-news{
+.news{
     height: fit-content;
     padding: 30px;
 }
@@ -22,4 +22,28 @@
 }
 .Release table tbody tr:nth-child(even){
  background-color: orange;
+}
+span{
+    color: #c24914;
+    font-weight: bold;
+}
+.Market{
+
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: fit-content;
+    overflow-y: scroll;
+}
+.Market table {
+    border: 1px solid black;
+    border-radius: 20px;
+}
+.Market table thead{
+   background-color: #f05454;
+    color: wheat;
+}
+.Market table thead th, table tbody td{
+    border: 1px solid black;
+    text-align: center;
 }
