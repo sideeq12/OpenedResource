@@ -86,6 +86,31 @@
                         
                     </tbody>
                 </table>
+                <br/>
+                <h6>TSLA : AMARIN Corporation plc.</h6>
+                <table>
+                    <thead>
+                        <th>Date</th>
+                        <th>Open</th>
+                        <th>High</th>
+                        <th>Low</th>
+                        <th>Close</th>
+                        <th>Volume</th>
+                    </thead>
+                    <tbody>
+                      <%  tesla.forEach((inner)=>{ %>
+                            <tr>
+                                <td><%= inner.date %></td>
+                                <td><%= inner.open %></td>
+                                <td><%= inner.high %></td>
+                                <td><%= inner.low %></td>
+                                <td><%= inner.close %></td>
+                                <td><%= inner.volume%></td>
+                            </tr>
+                      <%  }) %>
+                        
+                    </tbody>
+                </table>
             </div>
                
         </div>

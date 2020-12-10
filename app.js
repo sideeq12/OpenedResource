@@ -16,8 +16,7 @@ app.set("view engine", "ejs")
 const key = process.env.API;
 
 
-// declaring historical data array
-const historical = []
+
 
 //Yahoo news api global calling
 var reqUni = unirest("GET", "https://apidojo-yahoo-finance-v1.p.rapidapi.com/news/v2/get-details");
@@ -73,7 +72,7 @@ req.end(function (res) {
     let result = res.body;
     let arrBody = result.prices
     global.price = arrBody.slice(0, 20);
-    historical.push(price)
+
 })
 
 // HISTORICAL DATA FOR TESLA
@@ -95,9 +94,7 @@ reqtsla.end(function (res) {
 	if (res.error) throw new Error(res.error);
     let result = res.body;
     let arrBody = result.prices
-    global.price = arrBody.slice(0, 20);
-    historical.push(price)
-    console.log(historical.length)
+    global.tsla = arrBody.slice(0, 20);
 });
 
 
@@ -153,7 +150,7 @@ https.get(ETH, (response)=>{
 app.get("/", (req, res)=>{
  
 res.render("Home", {message : message, title : title, url : link1,
-     tickers : tickers, price : price, dataArray : dataArray
+     tickers : tickers, price : price, dataArray : dataArray , tesla : tsla
     })
 })
 
