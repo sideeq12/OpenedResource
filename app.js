@@ -71,7 +71,8 @@ req.end(function (res) {
 	
     let result = res.body;
     let arrBody = result.prices
-    global.price = arrBody.slice(0, 20);
+    let checking = arrBody.slice(0, 20);
+    global.price = checking
 
 })
 
@@ -93,7 +94,8 @@ reqtsla.end(function (res) {
 
     let result = res.body;
     let arrBody = result.prices
-    global.tsla = arrBody.slice(0, 20);
+    let checking1 = arrBody.slice(0, 20);
+    global.tsla = checking1
 });
 
 
