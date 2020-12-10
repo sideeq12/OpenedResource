@@ -64,7 +64,7 @@ req.query({
 });
 
 req.headers({
-	"x-rapidapi-key": "336218d839msh1637381c3d1b658p1423aajsn45e2a66bde89",
+	"x-rapidapi-key": process.env.APi3,
 	"x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
 	"useQueryString": true
 });
