@@ -16,9 +16,8 @@ app.set("view engine", "ejs")
 const key = process.env.API;
 
 
-
-
-
+// declaring historical data array
+const historical = []
 
 //Yahoo news api global calling
 var reqUni = unirest("GET", "https://apidojo-yahoo-finance-v1.p.rapidapi.com/news/v2/get-details");
@@ -54,7 +53,8 @@ reqUni.end(function (res) {
 
 
 
-// YAHOO HISTORICAL DATA
+
+// YAHOO HISTORICAL DATA FOR ARMARIN
 
 var req = unirest("GET", "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v3/get-historical-data");
 
@@ -68,15 +68,39 @@ req.headers({
 	"x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
 	"useQueryString": true
 });
-
-
 req.end(function (res) {
 	if (res.error) throw new Error(res.error);
     let result = res.body;
     let arrBody = result.prices
     global.price = arrBody.slice(0, 20);
-    // console.log(price)
+    historical.push(price)
+})
+
+// HISTORICAL DATA FOR TESLA
+var reqtsla = unirest("GET", "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v3/get-historical-data");
+
+reqtsla.query({
+	"symbol": "TSLA",
+	"region": "US"
 });
+
+reqtsla.headers({
+	"x-rapidapi-key": process.env.APi3,
+	"x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
+	"useQueryString": true
+});
+
+
+reqtsla.end(function (res) {
+	if (res.error) throw new Error(res.error);
+    let result = res.body;
+    let arrBody = result.prices
+    global.price = arrBody.slice(0, 20);
+    historical.push(price)
+    console.log(historical.length)
+});
+
+
 
 
 // Main page http apis calling
@@ -128,8 +152,6 @@ https.get(ETH, (response)=>{
 
 app.get("/", (req, res)=>{
  
-
-console.log(dataArray)
 res.render("Home", {message : message, title : title, url : link1,
      tickers : tickers, price : price, dataArray : dataArray
     })
