@@ -91,7 +91,7 @@ reqtsla.headers({
 
 
 reqtsla.end(function (res) {
-	if (res.error) throw new Error(res.error);
+
     let result = res.body;
     let arrBody = result.prices
     global.tsla = arrBody.slice(0, 20);
