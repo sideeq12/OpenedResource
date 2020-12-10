@@ -158,7 +158,6 @@ res.render("Home", {message : message, title : title, url : link1,
 
 // Port listening to render
 
-let PORT = process.env.PORT || 3000
-app.listen(PORT, (req, res)=>{
+app.listen(process.env.PORT || 3000, (req, res)=>{
     console.log("app running on Port 3000")
 })
