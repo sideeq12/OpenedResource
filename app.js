@@ -94,8 +94,8 @@ reqtsla.end(function (res) {
 
     let result = res.body;
     let arrBody = result.prices
-    let checking1 = arrBody.slice(0, 20);
-    global.tsla = checking1
+    let checking = arrBody.slice(0, 20);
+    global.tsla = checking
 });
 
 
