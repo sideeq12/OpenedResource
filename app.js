@@ -1,3 +1,5 @@
+'use strict'
+
 const express = require("express");
 const BodyParser = require("body-parser");
 const https = require("https");
@@ -46,6 +48,7 @@ reqUni.end(function (res) {
     global.message = summary
     let Tickers = mess.finance.stockTickers
     global.tickers = Tickers
+    // console.log(message)
     // let link1 = link.url
     
 })
@@ -63,7 +66,7 @@ req.query({
 });
 
 req.headers({
-	"x-rapidapi-key": process.env.APi3,
+	"x-rapidapi-key": process.env.API3,
 	"x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
 	"useQueryString": true
 });
@@ -73,6 +76,7 @@ req.end(function (res) {
     let arrBody = result.prices
     let checking = arrBody.slice(0, 20);
     global.price = checking
+    // console.log(price)
 
 })
 
@@ -85,7 +89,7 @@ reqtsla.query({
 });
 
 reqtsla.headers({
-	"x-rapidapi-key": process.env.APi3,
+	"x-rapidapi-key": process.env.API3,
 	"x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
 	"useQueryString": true
 });
@@ -96,6 +100,7 @@ reqtsla.end(function (res) {
     let arrBody = result.prices
     let checking = arrBody.slice(0, 20);
     global.tsla = checking
+    // console.log(tsla)
 });
 
 
