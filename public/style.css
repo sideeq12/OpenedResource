@@ -66,15 +66,12 @@ span{
     height: 800px;
 }
 .footer{
-    margin-top: auto;
-    height: 200px;
+    height: 150px;
     width: 100%;
     background-color: black;
-    position: relative;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 0px;
 
 }
