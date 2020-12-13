@@ -66,7 +66,7 @@ span{
     height: 1000px;
 }
 footer{
-    margin-top: 20px;
+    margin-top: auto;
     height: 200px;
     width: 100%;
     background-color: black;
