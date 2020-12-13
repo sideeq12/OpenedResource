@@ -1,3 +1,6 @@
+body{
+    background-color: #d6d2c4;
+}
 .news{
     height: fit-content;
 }
@@ -20,6 +23,9 @@
 .Release table tbody tr:nth-child(even){
  background-color: orange;
 }
+.Release table tbody tr:nth-child(odd){
+    background-color: #ffffff;
+   }
 span{
     color: #c24914;
     font-weight: bold;
@@ -43,6 +49,9 @@ span{
 .Market table tbody tr:nth-child(even){
     background-color: #839b97;
 }
+.Market table tbody tr:nth-child(odd){
+    background-color: #ffffff;
+}
 .Market table thead th, table tbody td{
     border: 1px solid black;
     text-align: center;
@@ -50,8 +59,20 @@ span{
 .historical{
     margin-top: 50px;
     margin-bottom: 20px;
-    
+    border-radius: 20px;
 }
 .container{
     margin-bottom: 20px;
+    height: 1000px;
+}
+footer{
+    margin-top: 20px;
+    height: 200px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
