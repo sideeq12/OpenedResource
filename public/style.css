@@ -55,13 +55,3 @@ span{
 .container{
     margin-bottom: 20px;
 }
-.footer{
-    margin-top: auto;
-
-    height: 200px;
-    width: 100%;
-    background-color: black;
-    color: white;
-    justify-content: center;
-    align-items: center;
-}
