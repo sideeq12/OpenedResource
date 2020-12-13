@@ -34,9 +34,6 @@ span{
     justify-content: center;
     align-items: center;
     /* height: 450px; */
-    
-    overflow-y: scroll;
-    border-radius: 20px;
 }
 .Market table {
     border: 1px solid black;
@@ -73,6 +70,9 @@ span{
     align-items: center;
 }
 @media (max-width:800px){
+    .container{
+        background-color: #d6d2c4;
+    }
     .Release table thead th, .Release table tbody td{
         font-size: small;
         padding: 0px;
