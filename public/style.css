@@ -85,4 +85,7 @@ span{
         padding: 1px;
         font-size: small;
     }
+    .Market{
+        overflow-x: scroll;
+    }
 }
