@@ -31,12 +31,12 @@ span{
     font-weight: bold;
 }
 .Market{
-
     justify-content: center;
     align-items: center;
-    height: 450px;
-    width: fit-content;
+    /* height: 450px; */
+    
     overflow-y: scroll;
+    border-radius: 20px;
 }
 .Market table {
     border: 1px solid black;
@@ -56,14 +56,12 @@ span{
     border: 1px solid black;
     text-align: center;
 }
-.historical{
-    margin-top: 50px;
-    margin-bottom: 20px;
-    border-radius: 20px;
-}
+
 .container{
     margin-bottom: 20px;
-    height: 800px;
+    height: fit-content;
+    padding: 20px;
+    background-color: white;
 }
 .footer{
     height: 150px;
@@ -73,5 +71,9 @@ span{
     display: flex;
     justify-content: center;
     align-items: center;
-
+}
+@media (max-width:800px){
+    .Release table thead th{
+        padding: 2px;
+    }
 }
