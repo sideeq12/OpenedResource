@@ -1,6 +1,42 @@
 body{
     background-color: #d6d2c4;
 }
+.jumbotron{
+    display: flex;
+    flex-direction: row;
+    background-image: url("open.jpg");  
+}
+.jumbotron h3{
+    color: orange;
+}
+.jumbotron ul{
+    margin-left: auto;
+    margin-right: 10%;
+}
+.jumbotron ul li{
+    list-style: none;
+    display: inline;
+}
+.jumbotron ul li:hover{
+    transform: scale(1.7);
+}
+.jumbotron ul li a{
+    margin: 15px;
+    text-decoration: none;
+    color: #ffffff;
+    border-left: none;
+    font-size: 20px;
+    border-right: none;
+    border-top: none;
+    border-bottom: 1px solid #ffffff;
+    padding: 2px;
+}
+.jumbotron ul li a:hover{
+    color: orange;
+    transform: scale(1.9);
+    border: none;
+
+}
 .news{
     height: fit-content;
 }
@@ -61,8 +97,6 @@ span{
 .container{
     margin-bottom: 20px;
     height: fit-content;
-    padding: 20px;
-    background-color: white;
 }
 .footer{
     height: 150px;
@@ -72,6 +106,26 @@ span{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
+}
+.footer .first li , .second li{
+    list-style: none;
+}
+.footer .first ul li a , .second  ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+.footer .first ul{
+    margin-right: 20%;
+    border-right: 1px solid #ffffff;
+    width: 300px;
+}
+.footer .first ul li a:hover , .second  ul li a:hover{
+    cursor: pointer;
+    color: orange;
+    transform: scale(1.1);
+    transition: .5s;
 }
 @media (max-width:800px){
     .container{
@@ -87,5 +141,10 @@ span{
     }
     .Market{
         overflow-x: scroll;
+    }
+    .footer .first ul{
+        margin-right: 10%;
+        border-right: 1px solid #ffffff;
+        padding-right: 20px;
     }
 }
