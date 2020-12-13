@@ -50,10 +50,14 @@ span{
 .historical{
     margin-top: 50px;
     margin-bottom: 20px;
+    
 }
-footer{
-    position: relative;
-    margin-top: 10px;
+.container{
+    margin-bottom: 20px;
+}
+.footer{
+    margin-top: auto;
+
     height: 200px;
     width: 100%;
     background-color: black;
