@@ -70,6 +70,7 @@ span{
     height: 200px;
     width: 100%;
     background-color: black;
+    position: relative;
     color: white;
     display: flex;
     justify-content: center;
