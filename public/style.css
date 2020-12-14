@@ -130,6 +130,27 @@ span{
 #burger{
     display: none;
 }
+.Trending p {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    flex-wrap: wrap; 
+}
+.Trending p span{
+    padding: 5px;
+    border-radius: 5px;
+    color: black;
+    background-color: white;
+    margin: 2px;
+}
+.Trending p span:hover{
+    background-color: orangered;
+    cursor: pointer;
+    transform: scale(1.2);
+    color: #ffffff;
+}
+
+
 @media (max-width:800px){
     .container{
         background-color: #d6d2c4;

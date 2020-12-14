@@ -103,6 +103,17 @@ reqtsla.end(function (res) {
     // console.log(tsla)
 });
 
+// API link from mbourn for trending list
+let key4 = process.env.API4
+let TRENDING = "https://mboum.com/api/v1/tr/trending?apikey="+key4
+https.get(TRENDING, (response)=>{
+    response.on("data", (data)=>{
+        let list = JSON.parse(data)
+        let trend = list[0].quotes;
+        global.trending = trend
+    })
+})
+
 
 
 
@@ -156,7 +167,7 @@ https.get(ETH, (response)=>{
 app.get("/", (req, res)=>{
  
 res.render("Home", {message : message, title : title, url : link1,
-     tickers : tickers, price : price, dataArray : dataArray , tesla : tsla
+     tickers : tickers, price : price, dataArray : dataArray , tesla : tsla, trending : trending
     })
 })
 

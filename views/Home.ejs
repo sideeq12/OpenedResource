@@ -118,7 +118,16 @@
                         
                     </tbody>
                 </table>
-            </div>              
+            </div> 
+            <br/>
+            <hr/>
+            <div class="Trending">
+                <h5>Trending</h5>
+                <p> <% trending.forEach((Symbol)=>{ %>
+                        <span><%= Symbol %></span>
+                    <% }) %>
+                </p>
+            </div>             
         </div>
           
  <div class="container-fluid footer">
