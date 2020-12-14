@@ -164,13 +164,18 @@ https.get(ETH, (response)=>{
         })
     })
 
+
+    // Delivering Home page
 app.get("/", (req, res)=>{
- 
 res.render("Home", {message : message, title : title, url : link1,
      tickers : tickers, price : price, dataArray : dataArray , tesla : tsla, trending : trending
     })
 })
 
+// contact page
+app.get("/contact.ejs", (req, res)=>{
+    res.render("contact")
+})
 
 
 // Port listening to render
