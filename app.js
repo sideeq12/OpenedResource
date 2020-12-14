@@ -176,6 +176,10 @@ res.render("Home", {message : message, title : title, url : link1,
 app.get("/contact.ejs", (req, res)=>{
     res.render("contact")
 })
+// Privacy page
+app.get("/privacy.ejs", (req, res)=>{
+    res.render("privacy")
+})
 
 
 // Port listening to render
