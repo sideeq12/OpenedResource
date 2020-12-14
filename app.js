@@ -180,7 +180,10 @@ app.get("/contact.ejs", (req, res)=>{
 app.get("/privacy.ejs", (req, res)=>{
     res.render("privacy")
 })
-
+// terms of use
+app.get("/term-of-use.ejs", (req, res)=>{
+    res.render("term-of-use")
+})
 
 // Port listening to render
 
