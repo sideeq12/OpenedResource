@@ -210,7 +210,9 @@ span{
         margin-right: 10%;
         border-right: 1px solid #ffffff;
         padding-right: 20px;
-        font-size: 5px;
+    }
+    .footer ul li a{
+        font-size: 10px;
     }
     .jumbotron{
         width: fit-content;
