@@ -192,6 +192,9 @@ span{
 
 
 @media (max-width:800px){
+    .jumbotron h3{
+        font-size: 20px;
+    }
     .container{
         background-color: #d6d2c4;
     }
