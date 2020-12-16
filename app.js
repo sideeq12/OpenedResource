@@ -110,8 +110,7 @@ https.get(TRENDING, (response)=>{
     response.on("data", (data)=>{
         let list = JSON.parse(data)
         let trend = list[0].quotes;
-        let trendValue = trend.slice(0, 30)
-        global.trending = trendValue
+        global.trending = trend
     })
 })
 
