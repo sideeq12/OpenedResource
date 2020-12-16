@@ -212,8 +212,11 @@ span{
         padding-right: 20px;
         font-size: 5px;
     }
+    .jumbotron{
+        width: fit-content;
+    }
     .jumbotron ul li a{
-        font-size: 5px;
+        font-size: 10px;
     }
     .content{
         width: 80%;
