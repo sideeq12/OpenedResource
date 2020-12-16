@@ -207,11 +207,9 @@ span{
         overflow-x: scroll;
     }
     .footer .first ul{
-        margin-right: 5%;
-        border-right: 1px solid #ffffff;
         padding-right: 10px;
     }
-    .footer ul li a, .first ul li a{
+    .footer .first ul li a,.footer .second ul li a{
         font-size: 15px;
     }
     .jumbotron{
