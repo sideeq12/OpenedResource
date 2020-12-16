@@ -210,7 +210,8 @@ span{
         overflow-x: scroll;
     }
     .footer .first ul{
-        padding-right: 5px;
+        padding-right: none;
+        margin-right: none;
         border: none;
     }
     .footer .first ul li a,.footer .second ul li a{
