@@ -132,7 +132,16 @@
                        <th>Market Price</th>
                        <th>MP high</th>
                        <th>MP low</th>
+                       <th>MP change %</th>
+                       <th>Symbol</th>
                    </thead>
+                   <tbody>
+                       <% topGainer.forEach((gainer)=>{ %>
+                           <tr>
+                               <td><%= gainer.region %></td>
+                            </tr>
+                      <% }) %>
+                   </tbody>
                </table>
             </div>
             <hr/>

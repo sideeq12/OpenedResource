@@ -16,6 +16,7 @@ app.use(express.static("public"))
 app.use(BodyParser.urlencoded({extended : true}));
 app.set("view engine", "ejs")
 const key = process.env.API;
+let key4 = process.env.API4
 
 
 
@@ -48,7 +49,6 @@ reqUni.end(function (res) {
     global.message = summary
     let Tickers = mess.finance.stockTickers
     global.tickers = Tickers
-    // console.log(message)
     // let link1 = link.url
     
 })
@@ -76,7 +76,7 @@ req.end(function (res) {
     let arrBody = result.prices
     let checking = arrBody.slice(0, 20);
     global.price = checking
-    // console.log(price)
+
 
 })
 
@@ -100,11 +100,25 @@ reqtsla.end(function (res) {
     let arrBody = result.prices
     let checking = arrBody.slice(0, 20);
     global.tsla = checking
-    // console.log(tsla)
 });
 
+// API link for top gainers
+let TopGainerUrl = "https://mboum.com/api/v1/ga/topgainers/?start=1&apikey="+key4
+https.get(TopGainerUrl, (response)=>{
+    const cont = []
+    response.on("data", (result)=>{
+        cont.push(result)
+    })
+    response.on("end", ()=>{
+       const data = Buffer.concat(cont);
+       let listVal = JSON.parse(data)
+       let topGain = listVal.quotes;
+       global.topG = topGain;
+    })
+})
+
 // API link from mbourn for trending list
-let key4 = process.env.API4
+
 let TRENDING = "https://mboum.com/api/v1/tr/trending?apikey="+key4
 https.get(TRENDING, (response)=>{
     response.on("data", (data)=>{
@@ -168,7 +182,7 @@ https.get(ETH, (response)=>{
     // Delivering Home page
 app.get("/", (req, res)=>{
 res.render("Home", {message : message, title : title, url : link1,
-     tickers : tickers, price : price, dataArray : dataArray , tesla : tsla, trending : trending
+     tickers : tickers, price : price, dataArray : dataArray , tesla : tsla, trending : trending, topGainer : topG
     })
 })
 
