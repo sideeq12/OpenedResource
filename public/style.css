@@ -192,7 +192,10 @@ span{
     background-color: black;
     border: 1px solid #ffffff;
     padding: 3px;
-
+    text-align: center;
+}
+.top-gainers table tbody tr:nth-child(even){
+    background-color: grey;
 }
 
 
