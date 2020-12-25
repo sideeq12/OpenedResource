@@ -131,7 +131,9 @@ https.get(TRENDING, (response)=>{
 
 // new content
 https.get("", (response)=>{
-    
+    response.on("data", (data)=>{
+        
+    })
 })
 
 
