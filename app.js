@@ -138,7 +138,8 @@ https.get(Url, (response)=>{
     })
     response.on("end", ()=>{
         let Result = Buffer.concat(chuk);
-        
+        let Data =JSON.parse(Result)
+        console.log(Data)
     })
 })
 
