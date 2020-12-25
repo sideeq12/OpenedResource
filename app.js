@@ -139,7 +139,10 @@ https.get(Url, (response)=>{
     response.on("end", ()=>{
         let Result = Buffer.concat(chuk);
         let Data =JSON.parse(Result)
-        console.log(Data)
+        let ArrNews = Data.item;
+         global.lastBD = Data.lastBuildDate;
+        let arrnew = ArrNews.slice(0, 5);
+         global.arrnews = arrnew
     })
 })
 
@@ -195,7 +198,8 @@ https.get(ETH, (response)=>{
     // Delivering Home page
 app.get("/", (req, res)=>{
 res.render("Home", {message : message, title : title, url : link1,
-     tickers : tickers, price : price, dataArray : dataArray , tesla : tsla, trending : trending, topGainer : topG
+     tickers : tickers, price : price, dataArray : dataArray , tesla : tsla, trending : trending, topGainer : topG,
+     lastBD : lastBD , arrnews : arrnews
     })
 })
 

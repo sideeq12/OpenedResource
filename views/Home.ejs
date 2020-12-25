@@ -15,11 +15,6 @@
               <li><a href="contact.ejs">Contact Us</a></li>
               <li><a href="">FAQ</a></li>
           </ul>
-          <ul id="burger">
-              <li></li>
-              <li></li>
-              <li></li>
-          </ul>
       </div>
 
       <div class="container">
@@ -33,6 +28,13 @@
                             <% }) %>
                         </p>
                         <a href="<%= url %>" class="btn btn-primary">Read more</a>
+                        <hr/>
+                        <div>
+                            <% arrnews.forEach((new)=>{ %>
+                                <h5><%= new.title %></h5>
+                           <% }) %>
+
+                        </div>
           </div>
           <hr/>
           <div  style="width: 100%;">
