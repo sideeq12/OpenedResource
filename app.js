@@ -129,7 +129,7 @@ https.get(TRENDING, (response)=>{
     })
 })
 
-// new content
+// Latest news content
 let Url ="https://mboum.com/api/v1/ne/news/?symbol=AAPL&apikey=9cd9voIpZnUZAOkqVfOiZCTktefoi5aEpdrMPJySDxmb1gDYJrNpOyxY6iuW"
 https.get(Url, (response)=>{
     let chuk =[]
