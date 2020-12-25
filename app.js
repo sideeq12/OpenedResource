@@ -130,10 +130,10 @@ https.get(TRENDING, (response)=>{
 })
 
 // new content
-let Url =""
+let Url ="https://mboum.com/api/v1/ne/news/?symbol=AAPL&apikey=9cd9voIpZnUZAOkqVfOiZCTktefoi5aEpdrMPJySDxmb1gDYJrNpOyxY6iuW"
 https.get(Url, (response)=>{
     response.on("data", (data)=>{
-
+        console.log(JSON.parse(data))
     })
 })
 
