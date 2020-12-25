@@ -137,6 +137,7 @@ https.get(Url, (response)=>{
        chuk.push(data)
     })
     response.on("end", ()=>{
+        let Result = Buffer.concat(chuk);
         
     })
 })
