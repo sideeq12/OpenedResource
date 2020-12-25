@@ -30,10 +30,9 @@
                         <a href="<%= url %>" class="btn btn-primary">Read more</a>
                         <hr/>
                         <div>
-                            <% arrnews.forEach((new)=>{ %>
-                                <h5><%= new.title %></h5>
+                            <% arrnews.forEach((data)=>{ %>
+                               <p> <h5><%= data.title %></h5> </p>
                            <% }) %>
-
                         </div>
           </div>
           <hr/>
