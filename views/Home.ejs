@@ -32,7 +32,8 @@
                         <div>
                             <% arrnews.forEach((data)=>{ %>
                                <p> <h5><%= data.title %></h5>
-                            <%= data.description %> <a href="<%- data.link %>" class="btn btn-primary btn-sm">Read more</a></p>
+                            <%= data.description %> <a href="<%- data.link %>" class="btn btn-primary btn-sm">Read more</a>
+                        <kbd><%= data.pubDate %></kbd></p> <hr/>
                            <% }) %>
                         </div>
           </div>
