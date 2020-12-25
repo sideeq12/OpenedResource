@@ -136,6 +136,7 @@ https.get(Url, (response)=>{
     response.on("data", (data)=>{
        chuk.push(data)
     })
+    response.on("e")
 })
 
 
