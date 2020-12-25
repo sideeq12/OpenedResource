@@ -130,6 +130,9 @@ https.get(TRENDING, (response)=>{
 })
 
 // new content
+https.get("", (response)=>{
+    
+})
 
 
 // Main page http apis calling
