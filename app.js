@@ -143,6 +143,7 @@ https.get(Url, (response)=>{
          global.lastBD = Data.lastBuildDate;
         let arrnew = ArrNews.slice(0, 5);
          global.arrnews = arrnew
+         console.log(arrnews)
     })
 })
 
